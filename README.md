@@ -27,3 +27,6 @@ dot_files
 - typescript linter settings
    - should use eslint & @typescipt-eslint/eslint-plugin
 [tslint.json][./tslint.json]
+
+# LICENSE
+[PUBLIC DOMAIN](LICENSE)
