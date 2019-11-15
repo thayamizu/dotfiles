@@ -4,7 +4,7 @@ dot_files
 
 ## Version Control System
 ### Git
-- git config
+- git config  
 [.gitignore](./.gitignore)    
 [.gitattribute](./)  
   
