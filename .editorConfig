@@ -1,0 +1,46 @@
+root = true
+
+[*]
+charset = utf-8
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+max_line_length=120
+trim_trailing_whitespace = true
+
+[{*.css,*.scss}]
+indent_size = 2
+
+[{*.blade,*.blade.php}]
+indent_size = 2
+
+[{*.ejs,*.pug}]
+indent_size = 2
+
+[{*.tsx,*.jsx}]
+indent_size = 2
+
+[{*.js, *.ts}]
+indent_size = 4
+
+[*.php]
+indent_size = 4
+
+[*.py]
+indent_size = 4
+
+[*.rb]
+indent_size = 4
+
+[{*.c, *.cpp, *.h, *.hpp}]
+indent_style = tab
+
+[*.cs]
+indent_style = tab
+
+[*.java]
+indent_style = tab
+
+[*.md]
+max_line_length=0
+trim_trailing_whitespace=false
