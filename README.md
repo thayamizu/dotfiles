@@ -1,6 +1,6 @@
-dot_files
+dotfiles
 ====
-- my useful setting collection.
+- my frequently used settings.
 
 ## Version Control System
 ### Git
