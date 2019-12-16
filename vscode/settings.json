@@ -10,7 +10,7 @@
     },
     //Editor
     "editor.find.addExtraSpaceOnTop": false,
-    "editor.fontFamily": "Inconsolata,  '源ノ角ゴシック Code JP', 'IPA Pゴシック', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "Inconsolata,'IPA Pゴシック', Consolas, 'Courier New', monospace",
     "editor.fontSize": 16,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
@@ -21,15 +21,17 @@
     "editor.detectIndentation": true,
     "editor.fontWeight": "bold",
     //Workbench
+    "workbench.colorTheme": "One Dark Pro",
     "workbench.colorCustomizations": {
         "terminal.foreground": "#bebfc9",
-        "terminal.background": "#04224b"
+        "terminal.background": "#23262b"
     },
     "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
     //Terminal
     "terminal.integrated.fontFamily": "Inconsolata, 'IPA Pゴシック'",
     "terminal.integrated.shell.windows": "/path/to/shell",
+    "terminal.integrated.shell.osx": "/bin/bash",
     //Explorer
     "explorer.confirmDragAndDrop": false,
     //Git
@@ -79,7 +81,7 @@
     //WorkspaceExplorer
     "workspaceExplorer.enableCustomIconSearch": true,
     "workspaceExplorer.workspaceStorageDirectory": "/path/to/workspace",
-    //CodeRunner
+    ///CodeRunner
     "code-runner.clearPreviousOutput": true,
     "code-runner.defaultLanguage": "c",
     //Peacock
@@ -145,5 +147,5 @@
     "vim.sneak": true,
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
-    "vim.visualstar": true,
+    "vim.visualstar": true
 }
