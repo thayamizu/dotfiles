@@ -1,4 +1,13 @@
 {
+    //Windows
+    "window.openFilesInNewWindow": "on",
+    //Icons
+    "vsicons.presets.hideFolders": false,
+    //Files
+    "files.associations": {
+        "*.log": "txt",
+        "*.blade": "blade"
+    },
     //Editor
     "editor.find.addExtraSpaceOnTop": false,
     "editor.fontFamily": "Inconsolata,  '源ノ角ゴシック Code JP', 'IPA Pゴシック', Consolas, 'Courier New', monospace",
@@ -10,11 +19,13 @@
     "editor.formatOnSave": true,
     "editor.insertSpaces": true,
     "editor.detectIndentation": true,
+    "editor.fontWeight": "bold",
     //Workbench
     "workbench.colorCustomizations": {
         "terminal.foreground": "#bebfc9",
         "terminal.background": "#04224b"
     },
+    "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
     //Terminal
     "terminal.integrated.fontFamily": "Inconsolata, 'IPA Pゴシック'",
@@ -22,6 +33,7 @@
     //Explorer
     "explorer.confirmDragAndDrop": false,
     //Git
+    "git.confirmSync": false,
     "git.autofetch": true,
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
@@ -33,6 +45,7 @@
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
     },
+    "gitlens.defaultGravatarsStyle": "robohash",
     "gitlens.keymap": "alternate",
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
@@ -49,10 +62,16 @@
     },
     //Langauge
     "C_Cpp.updateChannel": "Insiders",
+    "C_Cpp.workspaceSymbols": "All",
     "python.jediEnabled": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "latex-workshop.view.pdf.viewer": "tab",
+    "php.validate.executablePath": "/usr/local/bin/php",
+    "php.validate.run": "onType",
     "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
     //LiveShare
     "liveshare.featureSet": "insiders",
     //AWS
@@ -60,7 +79,7 @@
     //WorkspaceExplorer
     "workspaceExplorer.enableCustomIconSearch": true,
     "workspaceExplorer.workspaceStorageDirectory": "/path/to/workspace",
-    ///CodeRunner
+    //CodeRunner
     "code-runner.clearPreviousOutput": true,
     "code-runner.defaultLanguage": "c",
     //Peacock
