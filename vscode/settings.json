@@ -30,6 +30,8 @@
     "workbench.iconTheme": "vscode-icons",
     //Terminal
     "terminal.integrated.fontFamily": "'Inconsolata-dz for Powerline', 'IPA Pゴシック'",
+    "terminal.integrated.shell.windows": "wsl",
+    "terminal.integrated.shell.osx": "zsh",
     //Explorer
     "explorer.confirmDragAndDrop": false,
     //Git
