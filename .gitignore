@@ -23,3 +23,4 @@ todo
 *.idb
 *.ipch
 .DS_Store
+.emacs.d/tramp
