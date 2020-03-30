@@ -90,66 +90,13 @@
 (setq linum-delay t)
 (defadvice linum-schedule (around my-linum-schedule () activate)
   (run-with-idle-timer 0.2 nil #'linum-update-current))
-;; ;;$B%&%$%s%I%&$N=i4|CM(B
-;(setq default-frame-alist
-;      (append (list
-;	       '(width . 80)
-;	       '(height . 40)
-;	       '(top . 50)
-;	       '(left . 50)
-;		)
-;
-;	       default-frame-alist))
-      ;; ;;$B%+%i!<@_Dj(B
+;; Theme
 ;(require 'color-theme)
 ;(require 'zenburn)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-zenburn)))
-;; (if window-system (progn
-;; 		    ;; ;; $BJ8;z$N?'$r@_Dj$7$^$9!#(B
-;; 		    (add-to-list 'default-frame-alist '(foreground-color . "black"))
-;; 		    ;; ;; $BGX7J?'$r@_Dj$7$^$9!#(B
-;; 		    ;(add-to-list 'default-frame-alist '(background-color . "black"))
-
-;; 		    ;; ;; $B%+!<%=%k$N?'$r@_Dj$7$^$9!#(B
-;; 		    ;(add-to-list 'default-frame-alist '(cursor-color . "cyan"))
-;; 		    ;; ;; $B%^%&%9%]%$%s%?$N?'$r@_Dj$7$^$9!#(B
-;; 		    ;(add-to-list 'default-frame-alist '(mouse-color . "cyan"))
-;; 		    ;; ;; $B%b!<%I%i%$%s$NJ8;z$N?'$r@_Dj$7$^$9!#(B
-;; 		    ;(set-face-foreground 'modeline "black")
-;; 		    ;; ;; $B%b!<%I%i%$%s$NGX7J?'$r@_Dj$7$^$9!#(B
-;; 		    ;(;set-face-background 'modeline "lightgray")
-;; 		    ;; ;; $BA*BrCf$N%j!<%8%g%s$N?'$r@_Dj$7$^$9!#(B
-;; 		    ;(;set-face-background 'region "darkcyan")
-;; 		    ;; ;; $B%b!<%I%i%$%s!J%"%/%F%#%V$G$J$$%P%C%U%!!K$NJ8;z?'$r@_Dj$7$^$9!#(B
-;; 		    ;(;set-face-foreground 'mode-line-inactive "gray30")
-;; 		    ;; ;; $B%b!<%I%i%$%s!J%"%/%F%#%V$G$J$$%P%C%U%!!K$NGX7J?'$r@_Dj$7$^$9!#(B
-;; 		    ;(set-face-background 'mode-line-inactive "gray85")
-;; 		    ;;$B2hLL$rF)2a(B
-;; 		   ; (add-to-list 'default-frame-alist '(alpha . (80 40)))))
-;; ;; ;; $BJ8;z$N?'$r@_Dj$7$^$9!#(B
-;; 								    ;; ;(add-to-list 'default-frame-alist '(foreground-color . "gray10"))
-;; ;; ;; $BGX7J?'$r@_Dj$7$^$9!#(B
-;; (add-to-list 'default-frame-alist '(background-color . "white"))
-;; ;; ;; $B%+!<%=%k$N?'$r@_Dj$7$^$9!#(B
-;; (add-to-list 'default-frame-alist '(cursor-color . "SlateBlue2"))
-;; ;; ;; $B%^%&%9%]%$%s%?$N?'$r@_Dj$7$^$9!#(B
-;; (add-to-list 'default-frame-alist '(mouse-color . "SlateBlue2"))
-;; ;; ;; $B%b!<%I%i%$%s$NJ8;z$N?'$r!#(B
-;; (set-face-foreground 'modeline "gray")
-;; ;; ;; $B%b!<%I%i%$%s$NGX7J?'$r@_Dj$7$^$9!#(B
-;; (set-face-background 'modeline "MediumPurple2")
-;; ;; ;; $BA*BrCf$N%j!<%8%g%s$N?'$r@_Dj$7$^$9!#(B
-;; (set-face-background 'region "LightSteelBlue1")
-;; ;; ;; $B%b!<%I%i%$%s!J%"%/%F%#%V$G$J$$%P%C%U%!!K$NJ8;z?'$r@_Dj$7$^$9!#(B
-;; (set-face-foreground 'mode-line-inactive "gray30")
-;; ;; ;; $B%b!<%I%i%$%s!J%"%/%F%#%V$G$J$$%P%C%U%!!K$NGX7J?'$r@_Dj$7$^$9!#(B
-;; (set-face-background 'mode-line-inactive "gray85")
-;; ;;$B2hLL$rF)2a(B
-;; ;;(add-to-list 'default-frame-alist '(alpha . (90 70)))
-;;  )):
+;(eval-after-load "color-theme"
+;  '(progn
+;     (color-theme-initialize)
+;     (color-theme-zenburn)))
 
 ;;;------------------------------------------------
 ;;;フォント
