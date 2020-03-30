@@ -10,7 +10,7 @@
     },
     //Editor
     "editor.find.addExtraSpaceOnTop": false,
-    "editor.fontFamily": "'Inconsolata-dz for Pwoerline','IPA Pゴシック', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Inconsolata-dz for Powerline','IPA Pゴシック', Consolas, 'Courier New', monospace",
     "editor.fontSize": 16,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
@@ -156,7 +156,8 @@
     "vim.insertModeKeyBindings": [
         {
             "before": [
-                "<j-j>"
+                "j",
+                "j"
             ],
             "after": [
                 "<Esc>"

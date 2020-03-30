@@ -6,7 +6,6 @@
 *  - ショートカットごとの接頭辞
 *    - ctrl+w ウインドウ操作
 *    - ctrl+j コード編集
-*    - @ トグル操作
 * ref.
 * VSCodeをVimmerが満足できる設定にしてみた
 * https://blog.mamansoft.net/2018/09/17/vscode-satisfies-vimmer/
@@ -71,12 +70,12 @@
     // サイドバーのトグル(*->サイドバーへの移動)
     //----------------------------------------------------------
     {
-        "key": "@ v",
+        "key": "ctrl+w p",
         "command": "workbench.view.explorer",
         "when": "!explorerViewletVisible && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
     },
     {
-        "key": "@ v",
+        "key": "ctrl+w p",
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "explorerViewletVisible && !searchViewletVisible && !inDebugMode && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
     },
@@ -118,6 +117,19 @@
     {
         "key": "ctrl+w v",
         "command": "workbench.action.quickOpenView"
+    },
+    //----------------------------------------------------------
+    // vscodeのterminalのトグル
+    //----------------------------------------------------------
+    {
+        "key": "ctrl+w t",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "!terminalFocus'"
+    },
+    {
+        "key": "ctrl+w t",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminalFocus"
     },
     //----------------------------------------------------------
     // gitの操作系(uiの移動なし)

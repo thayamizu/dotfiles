@@ -72,7 +72,7 @@ if [ ${OS} = "Darwin" ];  then
     cp -f "${VSCODE_DIR}${SETTING_FILE}" "${MAC_VSCODE_DATA_PATH}${SETTING_FILE}"
     cp -f "${VSCODE_DIR}${KEYBINDING_FILE}" "${MAC_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
 
-elif [[ ${OS} = ^MINGW ]]; then
+elif [[ ${OS} =~ ^MINGW ]]; then
     cp -f "${VSCODE_DIR}${SETTING_FILE}" "${WIN_VSCODE_DATA_PATH}${SETTING_FILE}"
     cp -f "${VSCODE_DIR}${KEYBINDING_FILE}" "${WIN_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
 fi
