@@ -45,20 +45,20 @@
 ;;;auto-install.el
 ;;;-----------------------------------------------
 ;;auto-install
-;(add-to-list 'load-path "~/.emacs.d/auto-install/")
-;(setq auto-install-directory "~/.emacs.d/auto-install/")
-;(require 'auto-install)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install/"))
+(setq auto-install-directory "~/.emacs.d/auto-install/")
+(require 'auto-install)
 
 
 ;;auto-install-update-emacswiki
-;(auto-install-update-emacswiki-package-name t)
+(auto-install-update-emacswiki-package-name t)
 
 ;;install-elisp
 ;(auto-install-compatibility-setup)
 
 ;;ediff
-;(setq ediff-window-setup-function
-;      'ediff-setup-windows-plain)
+(setq ediff-window-setup-function
+      'ediff-setup-windows-plain)
 
 ;;---------------------------------------------
 ;;ELPA
@@ -220,15 +220,11 @@
   (add-hook 'bookmark-after-jump-hook 'bookmark-arrange-latest-top))
 
 ;;tempbuf
-;(require 'tempbuf)
-;;$B%U%!%$%k$r3+$$$?$i<+F0E*$K(Btempbuf$B$rM-8z$K$9$k(B
-;(add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
-;;dired$B$K$?$$$7$F$b!"(Btempbuf$B$rM-8z$K$9$k(B
-;(add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
+(require 'tempbuf)
 
 ;; auto-save-buffers
-;(require 'auto-save-buffers)
-;(run-with-idle-timer 2 t 'auto-save-buffers)
+(require 'auto-save-buffers)
+(run-with-idle-timer 2 t 'auto-save-buffers)
 
 ;; Emacs as Imave viewer
 (auto-image-file-mode t)
@@ -253,10 +249,10 @@
 ;; ------------------------------------------------
 ;; windows.el
 ;; ------------------------------------------------
-;; windows.el
-;; (require 'windows)
-;; (win:startup-with-window)
-;; (define-key ctl-x-map "C" 'see-you-again)
+;windows.el
+(require 'windows)
+(win:startup-with-window)
+(define-key ctl-x-map "C" 'see-you-again)
 
 ;; revive.el
 (autoload 'save-current-configuration "revive" "Save status" t)
@@ -266,45 +262,33 @@
 ;;;------------------------------------------------
 ;;;elscreeen
 ;;;------------------------------------------------
-;(require 'elscreen)
-;(require 'elscreen-dnd)
-;(require 'elscreen-howm)
-;(require 'elscreen-w3m)
-;
-;(defun elscreen-frame-title-update ()
-;  (when (elscreen-screen-modified-p 'elscreen-frame-title-update)
-;    (let* ((screen-list (sort (elscreen-get-screen-list) '<))
-;(screen-to-name-alist (elscreen-get-screen-to-name-alist))
-;(title (mapconcat
-;(lambda (screen)
-;(format "%d%s %s"
-;screen (elscreen-status-label screen)
-;(get-alist screen screen-to-name-alist)))
-;screen-list " ")))
-;      (if (fboundp 'set-frame-name)
-;(set-frame-name title)
-;(setq frame-title-format title)))))
-;
-;(eval-after-load "elscreen"
-;  '(add-hook 'elscreen-screen-update-hook 'elscreen-frame-title-update))
+(require 'elscreen)
+(require 'elscreen-dnd)
+(require 'elscreen-howm)
+(require 'elscreen-w3m)
+
+(defun elscreen-frame-title-update ()
+  (when (elscreen-screen-modified-p 'elscreen-frame-title-update)
+    (let* ((screen-list (sort (elscreen-get-screen-list) '<))
+(screen-to-name-alist (elscreen-get-screen-to-name-alist))
+(title (mapconcat
+(lambda (screen)
+(format "%d%s %s"
+screen (elscreen-status-label screen)
+(get-alist screen screen-to-name-alist)))
+screen-list " ")))
+      (if (fboundp 'set-frame-name)
+(set-frame-name title)
+(setq frame-title-format title)))))
+
+(eval-after-load "elscreen"
+  '(add-hook 'elscreen-screen-update-hook 'elscreen-frame-title-update))
 
 
 ;;;------------------------------------------------
 ;;;anything
 ;;;------------------------------------------------
-;(require 'anything-startup)
-;
-;; ;;yasnippet
-;(require 'yasnippet-config)
-;(require 'anything-c-yasnippet)
-;(yas/setup "~/.emacs.d/plugins")
-;
-;; yasnippetでメニューを使う
-;(setq yas/use-menu t)
-
-;; yasnippetのトリガーキー
-;(setq yas/trigger-key (kbd "TAB TAB"))
-;(setq yas/next-field-key (kbd "TAB"))
+(require 'anything-startup)
 
 ;; autoinsert
 (require 'autoinsert)
@@ -313,7 +297,7 @@
 (setq auto-insert-alist
       (nconc '(
 	       ("\\.cs"    . ["template.cs"     my-template])
-	       ("\\.org"    . ["template.org"     my-template])
+	       ("\\.org"   . ["template.org"     my-template])
 	       ("\\.cpp"   . ["template.cpp"   my-template])
 	       ("\\.c"     . ["template.c"     my-template])
 	       ("\\.h$"    . ["template.h"     my-template])
@@ -339,15 +323,15 @@
    (message "done."))
  (add-hook 'find-file-not-found-hooks 'auto-insert)
 
-;; ;;;------------------------------------------------
-;; ;;;auto-complete
-;; ;;;------------------------------------------------
-;(require 'auto-complete)
-;(require 'auto-complete-config)
+;;;------------------------------------------------
+;;;auto-complete
+;;;------------------------------------------------
+(require 'auto-complete)
+(require 'auto-complete-config)
 
 
 ;-----------------------------------------------
-;$B%W%m%0%i%_%s%0;Y1g(B
+;ビルド
 ;-----------------------------------------------
 ; flymake
 (require 'flymake)
@@ -363,14 +347,14 @@
 
 ;smart-compile
 ; ref. http://homepage.mac.com/zenitani/elisp-j.html#smart-compile
-;(require 'smart-compile+)
-;(define-key menu-bar-tools-menu [compile] '("Compile..." . smart-compile))
-;(when (require 'smart-compile+ "smart-compile" t)
-;  (global-set-key "\C-cc" 'smart-compile)
-;  (add-hook 'cc-mode-common-hook
-;            (lambda ()(local-set-key "\C-cc" 'smart-compile)))
-;  (add-hook 'sh-mode-hook
-;            (lambda ()(local-set-key "\C-cc" 'smart-compile))))
+(require 'smart-compile+)
+(define-key menu-bar-tools-menu [compile] '("Compile..." . smart-compile))
+(when (require 'smart-compile+ "smart-compile" t)
+  (global-set-key "\C-cc" 'smart-compile)
+  (add-hook 'cc-mode-common-hook
+            (lambda ()(local-set-key "\C-cc" 'smart-compile)))
+  (add-hook 'sh-mode-hook
+     (lambda ()(local-set-key "\C-cc" 'smart-compile))))
 
 ;configure cc-mode-common
 (add-hook 'cc-mode-common-hook
@@ -424,13 +408,13 @@
 (add-hook 'lua-mode-hook 'turn-on-font-lock)
 
 ;GNU GLOBAL(gtags)
-;(require 'gtags)
-;(setq gtags-mode-hook
-;      '(lambda ()
-;         (local-set-key "\M-t" 'gtags-find-tag)
-;         (local-set-key "\M-r" 'gtags-find-rtag)
-;         (local-set-key "\M-s" 'gtags-find-symbol)
-;         (local-set-key "\C-t" 'gtags-pop-stack)))
+(require 'gtags)
+(setq gtags-mode-hook
+      '(lambda ()
+         (local-set-key "\M-t" 'gtags-find-tag)
+         (local-set-key "\M-r" 'gtags-find-rtag)
+         (local-set-key "\M-s" 'gtags-find-symbol)
+         (local-set-key "\C-t" 'gtags-pop-stack)))
 
 ;auto create TAGS file
 (defadvice find-tag (before c-tag-file activate)
@@ -465,17 +449,8 @@
 ;haskell-mode
 (autoload 'haskell-mode "haskell-mode")
 
-;gdb-mode
-(setq gdb-many-windows t)
-(setq gdb-use-separate-io-buffer t) ; "IO buffer" $B$,I,MW$J$$>l9g$O(B  nil $B$G(B
-
 ;gist
-;(require 'gist)
-
-;C# mode
-(require 'csharp-mode)
-(setq auto-mode-alist
-      (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
+(require 'gist)
 
 ;markdown-mode
 (autoload 'markdown-mode "markdown-mode"
@@ -513,132 +488,18 @@
   (interactive)
   (let ((inhibit-read-only t))
     (erase-buffer)))
-
-;color-moccur
-;(require 'color-moccur)
-
-;moccur-edit
-;(require 'moccur-edit)
-;(setq moccur-split-word t);$B$9$Z!<$9$G6h@Z$i$l$?J#?t$NC18l$r$^$C$A(B
-
 ;igrep.el
-;(require 'igrep)
+(require 'igrep)
 
 ;grep-a-lot
-;(require 'grep-a-lot)
-;(grep-a-lot-setup-keys)
+(require 'grep-a-lot)
+(grep-a-lot-setup-keys)
 
 ;igrep$BMQ(B
-;(grep-a-lot-advise igrep)
+(grep-a-lot-advise igrep)
 
 ;grep-edit
-;(require 'grep-edit)
-
-;;;;-----------------------------------------------
-;;;;org-mode
-;;;;-----------------------------------------------
-;(require 'org)
-;
-;;;Todo
-; (setq org-todo-keywords '("TODO" "Wait" "DONE")
-;      org-todo-interpretation 'sequence)
-;
-;;;tex+pdf
-;(setq org-export-latex-date-format "%Y-%m-%d")
-;(setq org-export-latex-classes nil)
-;(add-to-list 'org-export-latex-classes
-;  '("jarticle"
-;    "\\documentclass[a4j]{jarticle}"
-;    ("\\section{%s}" . "\\section*{%s}")
-;    ("\\subsection{%s}" . "\\subsection*{%s}")
-;    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-;    ("\\paragraph{%s}" . "\\paragraph*{%s}")
-;    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-;
-;;;begin_src listings
-;(require 'org-latex)
-;(add-to-list 'org-export-latex-packages-alist '("" "listings"))
-;(add-to-list 'org-export-latex-packages-alist '("" "color"))
-;
-;(setq org-export-latex-listings 'mited)
-;  (setq org-latex-minted-options
-;     '(("frame" "lines") ("linenos=true")))
-;
-;;-----------------------------------------------
-;; Cygwin
-;;-----------------------------------------------
-;(when (eq system-type 'windows-nt)
-;   (require 'cygwin-mount)
-;   (cygwin-mount-activate))
-;
-;;-----------------------------------------------
-;; HOWM
-;;-----------------------------------------------
-;;howm
-;(require 'howm)
-;(setq howm-menu-lang 'ja)
-;(global-set-key "\C-c,," 'howm-menu)
-;(mapc
-; (lambda (f)
-;   (autoload f
-;     "howm" "Hitori Otegaru Wiki Modoki" t))
-; '(howm-menu howm-list-all howm-list-recent
-;             howm-list-grep howm-create
-;             howm-keyword-to-kill-ring))
-;(setq howm-menu-refresh-after-save nil)
-;(setq howm-refresh-after-save nil)
-;
-;
-;;-----------------------------------------------
-;;w3m
-;;-----------------------------------------------
-;(when (eq system-type 'windows-nt)
-;  (setq w3m-command "~/Software/w3m"))
-;(when (eq system-type 'darwin)
-;  (setq w3m-command "/usr/local/bin/w3m"))
-;
-;(autoload 'w3m "w3m"
-;  "Interface for w3m on Emacs." t)
-;(autoload 'w3m-find-file "w3m"
-;  "Find a local file using emacs-w3m." t)
-;(autoload 'w3m-search "w3m-search"
-;  "Search words using emacs-w3m." t)
-;(autoload 'w3m-weather "w3m-weather"
-;  "Display a weather report." t)
-;(autoload 'w3m-antenna "w3m-antenna"
-;  "Report changes of web sites." t)
-;(autoload 'w3m-namazu "w3m-namazu"
-;  "Search files with Namazu." t)
-;
-;;use cookie
-;(setq w3m-use-cookies t)
-;
-;;home page is google
-;(setq w3m-home-page "http://www.google.co.jp")
-;
-;(setq w3m-fill-column -10)
-;
-;;display inline image
-;(setq w3m-default-display-inline-images t)
-;
-;;appliaction binding for w3m
-;(setq w3m-content-type-alist
-;      '(("text/plain" "\\.\\(txt\\|tex\\|diary\\|el\\)" nil)
-;        ("text/html" "\\.s?html?$" w3m-w32-browser-with-fiber)
-;        ("text/html" "[0-9]+$" w3m-w32-browser-with-fiber)
-;        ("image/jpeg" "\\.jpe?g$" ("fiber.exe" file))
-;        ("image/png" "\\.png$" ("fiber.exe" file))
-;        ("image/gif" "\\gif$" ("fiber.exe" file))
-;        ("image/tiff" "\\tif?f$" ("fiber.exe" file))
-;        ("image/x-xwd" "\\.xwd$" ("fiber.exe" file))
-;        ("image/x-xbm" "\\.xbm$" ("fiber.exe" file))
-;        ("image/x-xpm" "\\.xpm$" ("fiber.exe" file))
-;        ("image/x-bmp" "\\.bmp$" ("fiber.exe" file))
-;        ("video/mpeg" "\\.mpe?g$" ("fiber.exe" file))
-;        ("video/quicktime" "\\.mov$" ("fiber.exe" file))
-;        ("application/postscript"
-;         "\\.\\(ps\\|eps\\)$" ("fiber.exe" file))
-;        ("application/pdf" "\\.pdf$" ("fiber.exe" file))))
+(require 'grep-edit)
 
 
 ;; powerline.el
