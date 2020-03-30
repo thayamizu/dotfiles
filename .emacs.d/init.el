@@ -171,11 +171,6 @@
 ;;;------------------------------------------------
 ; bf-mode
 (require 'dired)
-(require 'bf-mode)
-(setq bf-mode-except-ext '("\\.exe$" "\\.com$"))
-(setq bf-mode-html-with-w3m t) ; html
-(setq bf-mode-archive-list-verbose t)
-(setq bf-mode-directory-list-verbose t)
 
 ;;wdired
 (require 'wdired)
