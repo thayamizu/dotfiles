@@ -6,14 +6,6 @@
 (add-to-list 'load-path "~/.emacs.d/lib/film-1.14.9")
 (add-to-list 'load-path "~/.emacs.d/lib/semi-1.14.6")
 (add-to-list 'load-path "~/.emacs.d/plugins/")
-(add-to-list 'load-path "~/.emacs.d/plugins/mew")
-(add-to-list 'load-path "~/.emacs.d/plugins/yatex")
-(add-to-list 'load-path "~/.emacs.d/plugins/howm")
-(add-to-list 'load-path "~/.emacs.d/plugins/emacs-w3m")
-(add-to-list 'load-path "~/.emacs.d/plugins/twittering-mode")
-(add-to-list 'load-path "~/.emacs.d/plugins/org/contrib/lisp")
-(add-to-list 'load-path "~/.emacs.d/plugins/org/lisp")
-(add-to-list 'load-path "~/.emacs.d/plugins/csharp-mode")
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
 
 ;set emacs-server
