@@ -3,7 +3,7 @@
 dist/
 build/
 node_modules/
-
+logs/
 # ignore files
 TODO
 todo
@@ -22,3 +22,4 @@ todo
 *.opensdf
 *.idb
 *.ipch
+.DS_Store
