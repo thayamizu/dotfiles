@@ -25,7 +25,7 @@
           'executable-make-buffer-file-executable-if-script-p)
 
 ;;エラー発生時にデバッグする
-(setq debug-on-error t)
+(setq debug-on-error nil)
 
 ;;ring-bellを無効か
 (setq ring-bell-function 'ignore)
@@ -424,7 +424,7 @@ screen-list " ")))
 (require 'grep-a-lot)
 (grep-a-lot-setup-keys)
 
-;igrep$BMQ(B
+;igrep
 (grep-a-lot-advise igrep)
 
 ;grep-edit
