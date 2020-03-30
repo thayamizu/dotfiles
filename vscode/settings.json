@@ -10,7 +10,7 @@
     },
     //Editor
     "editor.find.addExtraSpaceOnTop": false,
-    "editor.fontFamily": "Inconsolata,'IPA Pゴシック', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Inconsolata-dz for Pwoerline','IPA Pゴシック', Consolas, 'Courier New', monospace",
     "editor.fontSize": 16,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
@@ -29,9 +29,7 @@
     "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
     //Terminal
-    "terminal.integrated.fontFamily": "Inconsolata, 'IPA Pゴシック'",
-    "terminal.integrated.shell.windows": "/path/to/shell",
-    "terminal.integrated.shell.osx": "/bin/bash",
+    "terminal.integrated.fontFamily": "'Inconsolata-dz for Powerline', 'IPA Pゴシック'",
     //Explorer
     "explorer.confirmDragAndDrop": false,
     //Git
