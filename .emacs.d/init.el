@@ -136,12 +136,6 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
-;; iswitchb
-(iswitchb-mode t)
-(setq read-buffer-function 'iswitchb-read-buffer)
-(setq iswitchb-regexp nil)
-(setq iswitchb-prompt-newbuffer nil)
-
 ;; bookmark-save-flags
 (setq bookmark-save-flag t)
 ;; bookmark-sort-flags
