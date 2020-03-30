@@ -7,7 +7,12 @@ dotfiles
 - git config  
 [.gitignore](./.gitignore)    
 [.gitattribute](./)  
-  
+
+## Editors 
+### Visual Studio Code
+- vscode settings 
+[vscode](./.vscode/settings.json)
+
 ## JavaScript & TypeScript 
 ### NPM
 - npm package rules.  

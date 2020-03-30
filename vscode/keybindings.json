@@ -1,0 +1,148 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入します
+/* ==============================================================
+* ルール
+*  - できる限り既存のショートカットは維持する。
+*    - ほかの環境でも操作するときの都合なので、コンテキストメニューから行えるようなものはOK
+*  - ショートカットごとの接頭辞
+*    - ctrl+w ウインドウ操作
+*    - ctrl+j コード編集
+*    - @ トグル操作
+* ref.
+* VSCodeをVimmerが満足できる設定にしてみた
+* https://blog.mamansoft.net/2018/09/17/vscode-satisfies-vimmer/
+* 割と突き詰めてやったvim→vscode移行
+* https://qiita.com/y-mattun/items/45776b7e1942edb2f727
+================================================================ */
+[
+    //----------------------------------------------------------
+    //エディタ操作
+    //----------------------------------------------------------
+    {
+        "key": "ctrl+j i",
+        "command": "editor.action.goToImplementation",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+j d",
+        "command": "editor.action.goToDeclaration",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+j r",
+        "command": "editor.action.refactor",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+j n",
+        "command": "editor.action.rename",
+        "when": "editorTextFocus"
+    },
+    //----------------------------------------------------------
+    // 検索関連
+    //----------------------------------------------------------
+    // 検索実行後の候補への移動
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.interactivePlayground.arrowDown",
+        "when": "interactivePlaygroundFocus && !editorTextFocus"
+    },
+    //----------------------------------------------------------
+    // サイドバーでのファイル名編集(ui移動はなし)
+    //----------------------------------------------------------
+    {
+        "key": "ctrl+r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "Enter",
+        "command": "explorer.openToSide",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    //----------------------------------------------------------
+    // サイドバーのファイルをエディターで開く(サイドバー -> エディター)
+    //----------------------------------------------------------
+    {
+        "key": "ctrl+l",
+        "command": "explorer.openToSide",
+        "when": "explorerViewletFocus && explorerViewletVisible"
+    },
+    //----------------------------------------------------------
+    // サイドバーのトグル(*->サイドバーへの移動)
+    //----------------------------------------------------------
+    {
+        "key": "@ v",
+        "command": "workbench.view.explorer",
+        "when": "!explorerViewletVisible && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
+    },
+    {
+        "key": "@ v",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "explorerViewletVisible && !searchViewletVisible && !inDebugMode && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
+    },
+    //----------------------------------------------------------
+    //よく使うサイドバーの切り替え処理
+    //----------------------------------------------------------
+    //エクスプローラーの表示
+    {
+        "key": "ctrl+w w",
+        "command": "workbench.view.explorer",
+    },
+    //ソース管理プロバイダー
+    {
+        "key": "ctrl+w s",
+        "command": "workbench.view.scm",
+    },
+    //検索
+    {
+        "key": "ctrl+w f",
+        "command": "workbench.view.search",
+    },
+    //debug
+    {
+        "key": "ctrl+w d",
+        "command": "workbench.view.debug",
+    },
+    //GitLens
+    {
+        "key": "ctrl+w g",
+        "command": "gitlens.views.repositories:gitlens.focus",
+    },
+    //----------------------------------------------------------
+    // vscodeのviewを選択
+    //----------------------------------------------------------
+    {
+        "key": "ctrl+w ctrl+v",
+        "command": "workbench.action.quickOpenView"
+    },
+    {
+        "key": "ctrl+w v",
+        "command": "workbench.action.quickOpenView"
+    },
+    //----------------------------------------------------------
+    // gitの操作系(uiの移動なし)
+    //----------------------------------------------------------
+    {
+        "key": "g c",
+        "command": "git.commit",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "g a",
+        "command": "git.stage",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "g g",
+        "command": "cursorTop",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+[BracketLeft]",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+shift+[BracketLeft]",
+        "command": "-workbench.action.terminal.toggleTerminal"
+    },
+]

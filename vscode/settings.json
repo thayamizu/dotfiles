@@ -10,7 +10,7 @@
     },
     //Editor
     "editor.find.addExtraSpaceOnTop": false,
-    "editor.fontFamily": "Inconsolata,'IPA Pゴシック', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Inconsolata-dz for Pwoerline','IPA Pゴシック', Consolas, 'Courier New', monospace",
     "editor.fontSize": 16,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
@@ -27,11 +27,11 @@
         "terminal.background": "#23262b"
     },
     "workbench.editor.enablePreview": false,
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "material-icon-theme",
     //Terminal
-    "terminal.integrated.fontFamily": "Inconsolata, 'IPA Pゴシック'",
-    "terminal.integrated.shell.windows": "/path/to/shell",
-    "terminal.integrated.shell.osx": "/bin/bash",
+    "terminal.integrated.fontFamily": "'Inconsolata-dz for Powerline', 'IPA Pゴシック'",
+    "terminal.integrated.shell.windows": "wsl",
+    "terminal.integrated.shell.osx": "zsh",
     //Explorer
     "explorer.confirmDragAndDrop": false,
     //Git
@@ -144,8 +144,49 @@
     "vim.hlsearch": true,
     "vim.ignorecase": true,
     "vim.incsearch": true,
-    "vim.sneak": true,
+    "vim.sneak": false,
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
-    "vim.visualstar": true
+    "vim.visualstar": true,
+    "vim.camelCaseMotion.enable": false,
+    "vim.highlightedyank.enable": true,
+    "vim.history": 100,
+    "vim.leader": " ",
+    "vim.statusBarColorControl": false,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "<j-j>"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "f"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "s"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "material-icon-theme.folders.theme": "specific",
+    "material-icon-theme.folders.color": "#fdd835"
 }
