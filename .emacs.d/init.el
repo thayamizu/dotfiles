@@ -25,29 +25,23 @@
 ;not backup
 (setq backup-inhibited t)
 
-;; $B5/F0;~$K(B splash-screen $B$rI=<($7$J$$$h$&$K$9$k!#(B
-;; emacs --no-splash
-;; M-x display-splash-screen $B$GI=<(!#(B
+;;スタートアップメッセージを抑制
 (setq inhibit-startup-message t)
 
-;;$B<+F0J]B8(B
+;; after-save-hook
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
-;;$B%(%i!<;~$K%P%C%/%H%l!<%9$r3+$/(B
-(setq debug-on-error nil)
+;;エラー発生時にデバッグする
+(setq debug-on-error t)
 
-;;$B%S!<%W$r@Z$k(B
+;;ring-bellを無効か
 (setq ring-bell-function 'ignore)
 
 ;;info+
 (eval-after-load "info" '(require 'info+))
 
-;;browse-url $B$N@_Dj(B
-(global-set-key [S-mouse-2] 'browse-url-at-mouse)
-
-
-;;$B%?%$%`%9%?%s%W(B
+;;タイムスタンプの設定を更新
 (require 'time-stamp)
 (add-hook 'before-save-hook 'time-stamp)
 (setq time-stamp-active t)
@@ -56,23 +50,23 @@
 (setq time-stamp-end " \\|$")
 
 ;;;-----------------------------------------------
-;;;auto-install.el$B$K$h$k(BEmacsLisp$B$N4IM}(B
+;;;auto-install.el
 ;;;-----------------------------------------------
-;;auto-install$B$K$h$C$F%$%s%9%H!<%k$5$l$k(BEmacs Lisp$B$r%m!<%I%Q%9$K4^$a$k(B
-;;auto-install$B$r%m!<%I(B
-(add-to-list 'load-path "~/.emacs.d/auto-install/")
-(require 'auto-install)
-(setq auto-install-directory "~/.emacs.d/auto-install/")
+;;auto-install
+;(add-to-list 'load-path "~/.emacs.d/auto-install/")
+;(setq auto-install-directory "~/.emacs.d/auto-install/")
+;(require 'auto-install)
 
-;;$B5/F0;~$K(BEmacsWiki$B$N%Z!<%8L>$rJd408uJd$K4^$a$k(B
-(auto-install-update-emacswiki-package-name t)
 
-;;install-elisp$B$H8_49$K$9$k(B
-(auto-install-compatibility-setup)
+;;auto-install-update-emacswiki
+;(auto-install-update-emacswiki-package-name t)
 
-;;ediff$B4XO"$N%P%C%U%!$r0l$D$K$^$H$a$k(B
-(setq ediff-window-setup-function
-      'ediff-setup-windows-plain)
+;;install-elisp
+;(auto-install-compatibility-setup)
+
+;;ediff
+;(setq ediff-window-setup-function
+;      'ediff-setup-windows-plain)
 
 ;;---------------------------------------------
 ;;ELPA
@@ -82,31 +76,30 @@
 ;;; interfacing with ELPA, the package archive.
 ;;; Move this code earlier if you want to reference
 ;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
+;(when
+;    (load
+;     (expand-file-name "~/.emacs.d/elpa/package.el"))
+;  (package-initialize))
 
 ;;;------------------------------------------------
-;;;$B8+$?L\(B
+;;;エディタ設定
 ;;;------------------------------------------------
-;;$B9THV9f$NI=<((B
-(require 'linum)          ;linum-mode$B$r%m!<%I(B
-(global-linum-mode t)
-(setq linum-format "%5d")
+;;linum は重くなるので無効化する
+;(require 'linum)          ;linum-mode
+;(global-linum-mode t)
+;(setq linum-format "%5d")
 
-;; ;; $B9T4V;XDj(B
+;; デフォルトスペーシング 2
 (set-default 'line-spacing 2)
 
-;; ;;$B%U%)%s%H%m%C%/%b!<%I$rM-8z$K$9(B
+;; フォントロックモードを有効化
 (global-font-lock-mode t)
 
-;; ;;$B%+%l%s%H9T$r%O%$%i%$%H$9$k(B
+;; 行ハイライト有効
 (global-hl-line-mode t)
 
-;; ;;$B%b!<%I9T$K>pJs$rDI2C$9$k(B
+;; ステータスバー
 (display-time-mode t)
-(line-number-mode t)
 (setq linum-delay t)
 (defadvice linum-schedule (around my-linum-schedule () activate)
   (run-with-idle-timer 0.2 nil #'linum-update-current))
@@ -121,8 +114,8 @@
 ;
 ;	       default-frame-alist))
       ;; ;;$B%+%i!<@_Dj(B
-(require 'color-theme)
-(require 'zenburn)
+;(require 'color-theme)
+;(require 'zenburn)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
@@ -172,68 +165,60 @@
 ;;  )):
 
 ;;;------------------------------------------------
-;;;$B%U%)%s%H(B
+;;;フォント
 ;;;------------------------------------------------
 (set-default-font "Inconsolata-14")
-(set-face-font 'variable-pitch "Inconsolata-14")
-(set-fontset-font (frame-parameter nil 'font)
-                   'japanese-jisx0208
-                   '("Takao$B%4%7%C%/(B" . "unicode-bmp"))
+;(set-face-font 'variable-pitch "Inconsolata-14")
+;(set-fontset-font (frame-parameter nil 'font)
+;                   'japanese-jisx0208
+;                   '("Takao$B%4%7%C%/(B" . "unicode-bmp"))
 
 ;;;------------------------------------------------
-;;;$B8@8l@_Dj(B
+;;;言語
 ;;;------------------------------------------------
-;;$B%m%1!<%k$N@_Dj(B
 (set-language-environment "Japanese")
 
 ;;;------------------------------------------------
-;;;$B%a%K%e!<(B
+;;;メニューとロケール
 ;;;------------------------------------------------
-;;$B%a%K%e!<$NF|K\8l2=(B
-;;$BJ8;z2=$1$9$k$N$G5Q2<(B
 ;(if (equal (substring (concat (getenv "LANG") "__") 0 2) "ja")
 ; (require 'menu-tree))
 ;(setq tree-menu-coding-system 'utf-8)
 
-;; $B%D!<%k%P!<%a%K%e!<$r>C$9(B
+;; ツールバー非表示
 (tool-bar-mode nil)
 
-;$B:G6a;H$C$?%U%!%$%k$rI=<((B
+;recentf
 (require 'recentf)
 (recentf-mode t)
 
-;; ;;$B%U%l!<%`L>$r%P%C%U%!L>$K$9$k(B
+;; フレーム表記
 (setq frame-title-format "%b")
 
-;; ;;;------------------------------------------------
-;; ;;;$B%P%C%U%!$H%U%!%$%k(B
-;; ;;;------------------------------------------------
-;; ;;sr-speedbar
-(require 'sr-speedbar)
-(setq sr-speedbar-right-side nil)
+;;;------------------------------------------------
+;;;検索
+;;;------------------------------------------------
+;; speedbar
+;(require 'sr-speedbar)
+;(setq sr-speedbar-right-side nil)
 
-;; ;;ffap$B8=:_0LCV$N%U%!%$%k!&#U#R#L$r3+$/(B
+;; ffap-b
 (ffap-bindings)
 
-;; ;;$B%U%!%$%kL>$,Ho$C$?;~$K%P%C%U%!L>$r$o$+$j$d$9$/$9$k(B
+;; uniquefy
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
-;; ;;$B%P%C%U%!@ZBX$r6/2=(B
+;; iswitchb
 (iswitchb-mode t)
-
-;; ;;$B%P%C%U%!FI$_<h$j4X?t$r(Biswitchb$B$K$9$k(B
 (setq read-buffer-function 'iswitchb-read-buffer)
-;; ;;$B@55,I=8=$r;H$o$J$$(B
 (setq iswitchb-regexp nil)
-;; ;;$B?7$7$$%P%C%U%!$r$D$/$k$+$I$&$+$rJ9$+$J$$(B
 (setq iswitchb-prompt-newbuffer nil)
 
-;; ;;$B%U%!%$%k$NFCDj0LCV$r%V%C%/%^!<%/$9$k(B
-;; ;;$B%V%C%/%^!<%/$rJQ99$7$?$iB(J]B8(B
+;; bookmark-save-flags
 (setq bookmark-save-flag t)
-;; ;;$BD6@0M}K!(B
+;; bookmark-sort-flags
 (progn
   (setq bookmark-sort-flag nil)
   (defun bookmark-arrange-latest-top ()
@@ -242,43 +227,27 @@
     (bookmark-save))
   (add-hook 'bookmark-after-jump-hook 'bookmark-arrange-latest-top))
 
-;;$B;H$o$J$$%P%C%U%!$r>C$9(B
+;;tempbuf
 ;(require 'tempbuf)
 ;;$B%U%!%$%k$r3+$$$?$i<+F0E*$K(Btempbuf$B$rM-8z$K$9$k(B
 ;(add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
 ;;dired$B$K$?$$$7$F$b!"(Btempbuf$B$rM-8z$K$9$k(B
 ;(add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
 
-;; ;;$B%U%!%$%k$N<+F0J]B8(B
-(require 'auto-save-buffers)
-(run-with-idle-timer 2 t 'auto-save-buffers)
+;; auto-save-buffers
+;(require 'auto-save-buffers)
+;(run-with-idle-timer 2 t 'auto-save-buffers)
 
-;; ;;Emacs$B$+$i2hA|$r3+$/(B open-image
+;; Emacs as Imave viewer
 (auto-image-file-mode t)
 (setq thumbs-thumbsdir
        (expand-file-name "~/.emacs-thumbs"))
  (setq thumbs-temp-dir (expand-file-name "~/tmp"))
 
-
-;;;------------------------------------------------
-;;;$B0u:~@_Dj(B
-;;;------------------------------------------------
-(setq ps-multibyte-buffer 'non-latin-printer)
-(setq ps-lpr-command "c:/Program Files (x86)/Ghostgum/gsview/gsview32.exe")
-(setq ps-lpr-switches nil)
-(setq ps-printer-name nil)
-(setq ps-printer-name-option nil)
-(setq ps-paper-type 'a4)
-(setq ps-line-number t
-      ps-print-header t
-      ps-landscape-mode t
-      ps-number-of-columns 2)
-
-
 ;;;------------------------------------------------
 ;;;Dired
 ;;;------------------------------------------------
-;;bf-mode
+; bf-mode
 (require 'dired)
 (require 'bf-mode)
 (setq bf-mode-except-ext '("\\.exe$" "\\.com$"))
@@ -286,15 +255,13 @@
 (setq bf-mode-archive-list-verbose t) ; $B05=L$5$l$?%U%!%$%k$rI=<((B
 (setq bf-mode-directory-list-verbose t); $B%G%#%l%/%H%jFb$N%U%!%$%k0lMw$rI=<((B
 
-;; ;;wdired
+;;wdired
 (require 'wdired)
 
 ;; ------------------------------------------------
-;; windows.el$B$H(Brevive.el$B$r;H$C$F%U%l!<%`$r4IM}(B
-;; $BA02s5/F0;~$N>uBV$bI|852DG=(B
+;; windows.el
 ;; ------------------------------------------------
-
-;; ;; ;; windows.el
+;; windows.el
 ;; (require 'windows)
 ;; (win:startup-with-window)
 ;; (define-key ctl-x-map "C" 'see-you-again)
@@ -305,50 +272,49 @@
 (autoload 'wipe "revive" "Wipe emacs" t)
 
 ;;;------------------------------------------------
-;;;elscreeen$B$r;H$C$F(Btab$B$r4IM}$9$k(B
+;;;elscreeen
 ;;;------------------------------------------------
-(require 'elscreen)
-(require 'elscreen-dnd)
-(require 'elscreen-howm)
-(require 'elscreen-w3m)
-
-(defun elscreen-frame-title-update ()
-  (when (elscreen-screen-modified-p 'elscreen-frame-title-update)
-    (let* ((screen-list (sort (elscreen-get-screen-list) '<))
-(screen-to-name-alist (elscreen-get-screen-to-name-alist))
-(title (mapconcat
-(lambda (screen)
-(format "%d%s %s"
-screen (elscreen-status-label screen)
-(get-alist screen screen-to-name-alist)))
-screen-list " ")))
-      (if (fboundp 'set-frame-name)
-(set-frame-name title)
-(setq frame-title-format title)))))
-
-(eval-after-load "elscreen"
-  '(add-hook 'elscreen-screen-update-hook 'elscreen-frame-title-update))
+;(require 'elscreen)
+;(require 'elscreen-dnd)
+;(require 'elscreen-howm)
+;(require 'elscreen-w3m)
+;
+;(defun elscreen-frame-title-update ()
+;  (when (elscreen-screen-modified-p 'elscreen-frame-title-update)
+;    (let* ((screen-list (sort (elscreen-get-screen-list) '<))
+;(screen-to-name-alist (elscreen-get-screen-to-name-alist))
+;(title (mapconcat
+;(lambda (screen)
+;(format "%d%s %s"
+;screen (elscreen-status-label screen)
+;(get-alist screen screen-to-name-alist)))
+;screen-list " ")))
+;      (if (fboundp 'set-frame-name)
+;(set-frame-name title)
+;(setq frame-title-format title)))))
+;
+;(eval-after-load "elscreen"
+;  '(add-hook 'elscreen-screen-update-hook 'elscreen-frame-title-update))
 
 
 ;;;------------------------------------------------
-;;;$BF~NO;Y1g(B
+;;;anything
 ;;;------------------------------------------------
-(require 'anything-startup)
-
+;(require 'anything-startup)
+;
 ;; ;;yasnippet
-(require 'yasnippet-config)
-(require 'anything-c-yasnippet)
-(yas/setup "~/.emacs.d/plugins")
-
-;; ;; $B%a%K%e!<$O;H$&(B
+;(require 'yasnippet-config)
+;(require 'anything-c-yasnippet)
+;(yas/setup "~/.emacs.d/plugins")
+;
+;; yasnippetでメニューを使う
 ;(setq yas/use-menu t)
 
-;; ;; $B%H%j%,$O(BSPC, $B<!$N8uJd$X$N0\F0$O(BTAB
+;; yasnippetのトリガーキー
 ;(setq yas/trigger-key (kbd "TAB TAB"))
 ;(setq yas/next-field-key (kbd "TAB"))
 
-;; ;;autoinsert$B$K$h$k%F%s%W%l!<%HA^F~(B
-;; ;; ;;ref $B$R$2$]$s(B
+;; autoinsert
 (require 'autoinsert)
 (add-hook 'find-file-hooks 'auto-insert)
 (setq auto-insert-directory "~/.emacs.d/template/")
@@ -384,8 +350,8 @@ screen-list " ")))
 ;; ;;;------------------------------------------------
 ;; ;;;auto-complete
 ;; ;;;------------------------------------------------
-(require 'auto-complete)
-(require 'auto-complete-config)
+;(require 'auto-complete)
+;(require 'auto-complete-config)
 
 
 ;-----------------------------------------------
@@ -405,14 +371,14 @@ screen-list " ")))
 
 ;smart-compile
 ; ref. http://homepage.mac.com/zenitani/elisp-j.html#smart-compile
-(require 'smart-compile+)
-(define-key menu-bar-tools-menu [compile] '("Compile..." . smart-compile))
-(when (require 'smart-compile+ "smart-compile" t)
-  (global-set-key "\C-cc" 'smart-compile)
-  (add-hook 'cc-mode-common-hook
-            (lambda ()(local-set-key "\C-cc" 'smart-compile)))
-  (add-hook 'sh-mode-hook
-            (lambda ()(local-set-key "\C-cc" 'smart-compile))))
+;(require 'smart-compile+)
+;(define-key menu-bar-tools-menu [compile] '("Compile..." . smart-compile))
+;(when (require 'smart-compile+ "smart-compile" t)
+;  (global-set-key "\C-cc" 'smart-compile)
+;  (add-hook 'cc-mode-common-hook
+;            (lambda ()(local-set-key "\C-cc" 'smart-compile)))
+;  (add-hook 'sh-mode-hook
+;            (lambda ()(local-set-key "\C-cc" 'smart-compile))))
 
 ;configure cc-mode-common
 (add-hook 'cc-mode-common-hook
@@ -466,13 +432,13 @@ screen-list " ")))
 (add-hook 'lua-mode-hook 'turn-on-font-lock)
 
 ;GNU GLOBAL(gtags)
-(require 'gtags)
-(setq gtags-mode-hook
-      '(lambda ()
-         (local-set-key "\M-t" 'gtags-find-tag)
-         (local-set-key "\M-r" 'gtags-find-rtag)
-         (local-set-key "\M-s" 'gtags-find-symbol)
-         (local-set-key "\C-t" 'gtags-pop-stack)))
+;(require 'gtags)
+;(setq gtags-mode-hook
+;      '(lambda ()
+;         (local-set-key "\M-t" 'gtags-find-tag)
+;         (local-set-key "\M-r" 'gtags-find-rtag)
+;         (local-set-key "\M-s" 'gtags-find-symbol)
+;         (local-set-key "\C-t" 'gtags-pop-stack)))
 
 ;auto create TAGS file
 (defadvice find-tag (before c-tag-file activate)
@@ -512,7 +478,7 @@ screen-list " ")))
 (setq gdb-use-separate-io-buffer t) ; "IO buffer" $B$,I,MW$J$$>l9g$O(B  nil $B$G(B
 
 ;gist
-(require 'gist)
+;(require 'gist)
 
 ;C# mode
 (require 'csharp-mode)
@@ -530,7 +496,7 @@ screen-list " ")))
 ;shell
 ;-----------------------------------------------
 ;bash
-(setq shell-file-name "bash")
+(setq shell-file-name "zsh")
 (setenv "SHELL" shell-file-name)
 (setq explicit-shell-file-name shell-file-name)
 (set-language-environment "Japanese")
@@ -556,151 +522,131 @@ screen-list " ")))
   (let ((inhibit-read-only t))
     (erase-buffer)))
 
-;------------------------------------------------
-;;;$B8!:w$HCV49(B
-;;;------------------------------------------------
-;;migemo
-(require 'migemo)
-(when (eq system-type 'windows-nt)
-  (setq migemo-command "~/Software/cmigemo")
-  (setq migemo-dictionary (expand-file-name "~/.emacs.d/dict/cp932.d/migemo-dict")))
-(when (eq system-type 'darwin)
-  (setq migemo-command "/usr/local/bin/cmigemo")
-  (setq migemo-dictionary "~/.emacs.d/dict/utf-8.d/migemo-dict"))
-(setq migemo-options '("-q" "--emacs" "-i" "\g"))
-(setq migemo-user-dictionary nil)
-(setq migemo-regex-dictionary nil)
-(setq migemo-use-pattern-alist t)
-(setq migemo-use-frequent-pattern-alist t)
-(setq migemo-pattern-alist-length 1024)
-(setq migemo-coding-system 'cp932)
-(migemo-init)
-
 ;color-moccur
-(require 'color-moccur)
+;(require 'color-moccur)
 
 ;moccur-edit
-(require 'moccur-edit)
-(setq moccur-split-word t);$B$9$Z!<$9$G6h@Z$i$l$?J#?t$NC18l$r$^$C$A(B
+;(require 'moccur-edit)
+;(setq moccur-split-word t);$B$9$Z!<$9$G6h@Z$i$l$?J#?t$NC18l$r$^$C$A(B
 
 ;igrep.el
-(require 'igrep)
+;(require 'igrep)
 
 ;grep-a-lot
-(require 'grep-a-lot)
-(grep-a-lot-setup-keys)
+;(require 'grep-a-lot)
+;(grep-a-lot-setup-keys)
 
 ;igrep$BMQ(B
-(grep-a-lot-advise igrep)
+;(grep-a-lot-advise igrep)
 
 ;grep-edit
-(require 'grep-edit)
+;(require 'grep-edit)
 
-;;;-----------------------------------------------
-;;;org-mode$B$K$h$kJ8=q=hM}(B
-;;;-----------------------------------------------
-(require 'org)
-
-;;Todo
- (setq org-todo-keywords '("TODO" "Wait" "DONE")
-      org-todo-interpretation 'sequence)
-
-;;tex+pdf
-(setq org-export-latex-date-format "%Y-%m-%d")
-(setq org-export-latex-classes nil)
-(add-to-list 'org-export-latex-classes
-  '("jarticle"
-    "\\documentclass[a4j]{jarticle}"
-    ("\\section{%s}" . "\\section*{%s}")
-    ("\\subsection{%s}" . "\\subsection*{%s}")
-    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-    ("\\paragraph{%s}" . "\\paragraph*{%s}")
-    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
-;;begin_src listings
-(require 'org-latex)
-(add-to-list 'org-export-latex-packages-alist '("" "listings"))
-(add-to-list 'org-export-latex-packages-alist '("" "color"))
-
-(setq org-export-latex-listings 'mited)
-  (setq org-latex-minted-options
-     '(("frame" "lines") ("linenos=true")))
-
-;-----------------------------------------------
-; Cygwin
-;-----------------------------------------------
-(when (eq system-type 'windows-nt)
-   (require 'cygwin-mount)
-   (cygwin-mount-activate))
-
-;-----------------------------------------------
-; HOWM
-;-----------------------------------------------
-;howm
-(require 'howm)
-(setq howm-menu-lang 'ja)
-(global-set-key "\C-c,," 'howm-menu)
-(mapc
- (lambda (f)
-   (autoload f
-     "howm" "Hitori Otegaru Wiki Modoki" t))
- '(howm-menu howm-list-all howm-list-recent
-             howm-list-grep howm-create
-             howm-keyword-to-kill-ring))
-(setq howm-menu-refresh-after-save nil)
-(setq howm-refresh-after-save nil)
-
-
-;-----------------------------------------------
-;w3m
-;-----------------------------------------------
-(when (eq system-type 'windows-nt)
-  (setq w3m-command "~/Software/w3m"))
-(when (eq system-type 'darwin)
-  (setq w3m-command "/usr/local/bin/w3m"))
-
-(autoload 'w3m "w3m"
-  "Interface for w3m on Emacs." t)
-(autoload 'w3m-find-file "w3m"
-  "Find a local file using emacs-w3m." t)
-(autoload 'w3m-search "w3m-search"
-  "Search words using emacs-w3m." t)
-(autoload 'w3m-weather "w3m-weather"
-  "Display a weather report." t)
-(autoload 'w3m-antenna "w3m-antenna"
-  "Report changes of web sites." t)
-(autoload 'w3m-namazu "w3m-namazu"
-  "Search files with Namazu." t)
-
-;use cookie
-(setq w3m-use-cookies t)
-
-;home page is google
-(setq w3m-home-page "http://www.google.co.jp")
-
-(setq w3m-fill-column -10)
-
-;display inline image
-(setq w3m-default-display-inline-images t)
-
-;appliaction binding for w3m
-(setq w3m-content-type-alist
-      '(("text/plain" "\\.\\(txt\\|tex\\|diary\\|el\\)" nil)
-        ("text/html" "\\.s?html?$" w3m-w32-browser-with-fiber)
-        ("text/html" "[0-9]+$" w3m-w32-browser-with-fiber)
-        ("image/jpeg" "\\.jpe?g$" ("fiber.exe" file))
-        ("image/png" "\\.png$" ("fiber.exe" file))
-        ("image/gif" "\\gif$" ("fiber.exe" file))
-        ("image/tiff" "\\tif?f$" ("fiber.exe" file))
-        ("image/x-xwd" "\\.xwd$" ("fiber.exe" file))
-        ("image/x-xbm" "\\.xbm$" ("fiber.exe" file))
-        ("image/x-xpm" "\\.xpm$" ("fiber.exe" file))
-        ("image/x-bmp" "\\.bmp$" ("fiber.exe" file))
-        ("video/mpeg" "\\.mpe?g$" ("fiber.exe" file))
-        ("video/quicktime" "\\.mov$" ("fiber.exe" file))
-        ("application/postscript"
-         "\\.\\(ps\\|eps\\)$" ("fiber.exe" file))
-        ("application/pdf" "\\.pdf$" ("fiber.exe" file))))
+;;;;-----------------------------------------------
+;;;;org-mode
+;;;;-----------------------------------------------
+;(require 'org)
+;
+;;;Todo
+; (setq org-todo-keywords '("TODO" "Wait" "DONE")
+;      org-todo-interpretation 'sequence)
+;
+;;;tex+pdf
+;(setq org-export-latex-date-format "%Y-%m-%d")
+;(setq org-export-latex-classes nil)
+;(add-to-list 'org-export-latex-classes
+;  '("jarticle"
+;    "\\documentclass[a4j]{jarticle}"
+;    ("\\section{%s}" . "\\section*{%s}")
+;    ("\\subsection{%s}" . "\\subsection*{%s}")
+;    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;    ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+;
+;;;begin_src listings
+;(require 'org-latex)
+;(add-to-list 'org-export-latex-packages-alist '("" "listings"))
+;(add-to-list 'org-export-latex-packages-alist '("" "color"))
+;
+;(setq org-export-latex-listings 'mited)
+;  (setq org-latex-minted-options
+;     '(("frame" "lines") ("linenos=true")))
+;
+;;-----------------------------------------------
+;; Cygwin
+;;-----------------------------------------------
+;(when (eq system-type 'windows-nt)
+;   (require 'cygwin-mount)
+;   (cygwin-mount-activate))
+;
+;;-----------------------------------------------
+;; HOWM
+;;-----------------------------------------------
+;;howm
+;(require 'howm)
+;(setq howm-menu-lang 'ja)
+;(global-set-key "\C-c,," 'howm-menu)
+;(mapc
+; (lambda (f)
+;   (autoload f
+;     "howm" "Hitori Otegaru Wiki Modoki" t))
+; '(howm-menu howm-list-all howm-list-recent
+;             howm-list-grep howm-create
+;             howm-keyword-to-kill-ring))
+;(setq howm-menu-refresh-after-save nil)
+;(setq howm-refresh-after-save nil)
+;
+;
+;;-----------------------------------------------
+;;w3m
+;;-----------------------------------------------
+;(when (eq system-type 'windows-nt)
+;  (setq w3m-command "~/Software/w3m"))
+;(when (eq system-type 'darwin)
+;  (setq w3m-command "/usr/local/bin/w3m"))
+;
+;(autoload 'w3m "w3m"
+;  "Interface for w3m on Emacs." t)
+;(autoload 'w3m-find-file "w3m"
+;  "Find a local file using emacs-w3m." t)
+;(autoload 'w3m-search "w3m-search"
+;  "Search words using emacs-w3m." t)
+;(autoload 'w3m-weather "w3m-weather"
+;  "Display a weather report." t)
+;(autoload 'w3m-antenna "w3m-antenna"
+;  "Report changes of web sites." t)
+;(autoload 'w3m-namazu "w3m-namazu"
+;  "Search files with Namazu." t)
+;
+;;use cookie
+;(setq w3m-use-cookies t)
+;
+;;home page is google
+;(setq w3m-home-page "http://www.google.co.jp")
+;
+;(setq w3m-fill-column -10)
+;
+;;display inline image
+;(setq w3m-default-display-inline-images t)
+;
+;;appliaction binding for w3m
+;(setq w3m-content-type-alist
+;      '(("text/plain" "\\.\\(txt\\|tex\\|diary\\|el\\)" nil)
+;        ("text/html" "\\.s?html?$" w3m-w32-browser-with-fiber)
+;        ("text/html" "[0-9]+$" w3m-w32-browser-with-fiber)
+;        ("image/jpeg" "\\.jpe?g$" ("fiber.exe" file))
+;        ("image/png" "\\.png$" ("fiber.exe" file))
+;        ("image/gif" "\\gif$" ("fiber.exe" file))
+;        ("image/tiff" "\\tif?f$" ("fiber.exe" file))
+;        ("image/x-xwd" "\\.xwd$" ("fiber.exe" file))
+;        ("image/x-xbm" "\\.xbm$" ("fiber.exe" file))
+;        ("image/x-xpm" "\\.xpm$" ("fiber.exe" file))
+;        ("image/x-bmp" "\\.bmp$" ("fiber.exe" file))
+;        ("video/mpeg" "\\.mpe?g$" ("fiber.exe" file))
+;        ("video/quicktime" "\\.mov$" ("fiber.exe" file))
+;        ("application/postscript"
+;         "\\.\\(ps\\|eps\\)$" ("fiber.exe" file))
+;        ("application/pdf" "\\.pdf$" ("fiber.exe" file))))
 
 
 ;; powerline.el
