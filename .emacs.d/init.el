@@ -128,10 +128,6 @@
 ;;;------------------------------------------------
 ;;;検索
 ;;;------------------------------------------------
-;; speedbar
-;(require 'sr-speedbar)
-;(setq sr-speedbar-right-side nil)
-
 ;; ffap-b
 (ffap-bindings)
 
