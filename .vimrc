@@ -1,4 +1,22 @@
-" basic config
+" Plugin Manager NeoBundle
+set nocompatible
+filetype plugin indent off
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#begin(expand('~/.vim/bundle'))
+    NeoBundleFetch 'Shougo/neobundle.vim'
+    NeoBundle 'easymotion/vim-easymotion'
+    NeoBundle 'tpope/vim-surround'
+    NeoBundle 'scrooloose/nerdtree'
+    NeoBundle 'yegappan/mru'
+    NeoBundle 'jacquesbh/vim-showmarks'
+   call neobundle#end()
+endif
+
+filetype plugin indent on
+
+" Basic Config
 set fenc=utf-8 " encoding utf-8
 set nobackup   "no backup file
 set noswapfile "no swap file
@@ -7,7 +25,7 @@ set hidden     "
 set showcmd    " show command status
 
 " Visual
-set number     "show line number
+set relativenumber     "show line number
 set cursorline "show cusorline
 set virtualedit=onemore "
 set smartindent         "enable smart indent
