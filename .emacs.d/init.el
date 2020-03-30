@@ -173,9 +173,9 @@
 (require 'dired)
 (require 'bf-mode)
 (setq bf-mode-except-ext '("\\.exe$" "\\.com$"))
-(setq bf-mode-html-with-w3m t) ; html は w3m で表示する
-(setq bf-mode-archive-list-verbose t) ; 圧縮されたファイルを表示
-(setq bf-mode-directory-list-verbose t); ディレクトリ内のファイル一覧を表示
+(setq bf-mode-html-with-w3m t) ; html
+(setq bf-mode-archive-list-verbose t)
+(setq bf-mode-directory-list-verbose t)
 
 ;;wdired
 (require 'wdired)
