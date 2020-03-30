@@ -102,10 +102,6 @@
 ;;;フォント
 ;;;------------------------------------------------
 (set-default-font "Inconsolata-14")
-;(set-face-font 'variable-pitch "Inconsolata-14")
-;(set-fontset-font (frame-parameter nil 'font)
-;                   'japanese-jisx0208
-;                   '("Takao$B%4%7%C%/(B" . "unicode-bmp"))
 
 ;;;------------------------------------------------
 ;;;言語
