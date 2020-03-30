@@ -54,28 +54,26 @@ wingrunr21.vscode-ruby
 zhuangtongfa.material-theme
 )
 
+
 for i in ${extlist[@]}; do
-  code --install-extension $i
+    code --install-extension $i
 done
 
-
 # copy setting
-USER_NAME=$(who | head -1 | cut -f 1 -d " ")
+USER_NAME=$(id -u -n | head -1 | cut -f 1 -d " ")
 MAC_VSCODE_DATA_PATH="/Users/${USER_NAME}/Library/Application Support/Code/User/"
-WSL_VSCODE_DATA_PATH="/mnt/c/Users/${USER_NAME}/AppData/Roaming/Code/User/"
+WIN_VSCODE_DATA_PATH="/C/Users/${USER_NAME}/AppData/Roaming/Code/User/"
 VSCODE_DIR="./vscode/"
 KEYBINDING_FILE="keybindings.json"
 SETTING_FILE="settings.json"
-
 OS=$(uname)
+
 if [ ${OS} = "Darwin" ];  then
     cp -f "${VSCODE_DIR}${SETTING_FILE}" "${MAC_VSCODE_DATA_PATH}${SETTING_FILE}"
     cp -f "${VSCODE_DIR}${KEYBINDING_FILE}" "${MAC_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
-elif [ ${OS} = "Linux" ]; then
-    cp -f "${VSCODE_DIR}${SETTING_FILE}" "${WSL_VSCODE_DATA_PATH}${SETTING_FILE}"
-    cp -f "${VSCODE_DIR}${KEYBINDING_FILE}" "${WSL_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
+
+elif [[ ${OS} = ^MINGW ]]; then
+    cp -f "${VSCODE_DIR}${SETTING_FILE}" "${WIN_VSCODE_DATA_PATH}${SETTING_FILE}"
+    cp -f "${VSCODE_DIR}${KEYBINDING_FILE}" "${WIN_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
 fi
-
-
-
 
