@@ -15,6 +15,7 @@ if has('vim_starting')
 endif
 
 filetype plugin indent on
+filetype plugin on
 
 " Basic Config
 set fenc=utf-8 " encoding utf-8
