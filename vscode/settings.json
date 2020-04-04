@@ -20,6 +20,7 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": true,
     "editor.fontWeight": "bold",
+    "editor.lineNumbers": "relative",
     //Workbench
     "workbench.colorTheme": "One Dark Pro",
     "workbench.colorCustomizations": {
