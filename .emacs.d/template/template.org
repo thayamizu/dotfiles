@@ -1,7 +1,0 @@
-#+TITLE: %file-without-ext%
-#+AUTHOR: t.hayamizu
-#+EMAIL: t.hayamizu@outlook.com
-#+LANGUAGE: ja
-#+OPTIONS: toc:t num:nil author:t creator:nil LaTeX:t
-#+LATEX_CLASS: jarticle
-
