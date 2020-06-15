@@ -16,19 +16,19 @@
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
     "editor.suggestSelection": "first",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.insertSpaces": true,
     "editor.detectIndentation": true,
     "editor.fontWeight": "bold",
     "editor.lineNumbers": "relative",
     //Workbench
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Default Light+",
     "workbench.colorCustomizations": {
         "terminal.foreground": "#bebfc9",
         "terminal.background": "#23262b"
     },
     "workbench.editor.enablePreview": false,
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "vscode-icons",
     //Terminal
     "terminal.integrated.fontFamily": "'Inconsolata-dz for Powerline', 'IPA Pゴシック'",
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
@@ -81,7 +81,7 @@
     "aws.profile": "default",
     //WorkspaceExplorer
     "workspaceExplorer.enableCustomIconSearch": true,
-    "workspaceExplorer.workspaceStorageDirectory": "/path/to/workspace",
+    "workspaceExplorer.workspaceStorageDirectory": "~/Documents/workspaces",
     ///CodeRunner
     "code-runner.clearPreviousOutput": true,
     "code-runner.defaultLanguage": "c",
@@ -190,5 +190,6 @@
         "<C-f>": false
     },
     "material-icon-theme.folders.theme": "specific",
-    "material-icon-theme.folders.color": "#fdd835"
+    "material-icon-theme.folders.color": "#fdd835",
+    "python.autoComplete.extraPaths": ["~/.pyenv/versions/anaconda3-4.3.1/lib/python3.6/site-packages"]
 }

@@ -35,8 +35,6 @@ ms-vscode-remote.vscode-remte-extensionpack
 ms-vscode.cpptools
 ms-vscode.csharp
 ms-vscode.powershell
-ms-vsliveshare.vsliveshare
-ms-vsliveshare.vsliveshare-audio
 ms-vsliveshare.vsliveshare-pack
 octref.vetur
 rbbit.typescript-hero
@@ -69,11 +67,15 @@ SETTING_FILE="settings.json"
 OS=$(uname)
 
 if [ ${OS} = "Darwin" ];  then
-    cp -f "${VSCODE_DIR}${SETTING_FILE}" "${MAC_VSCODE_DATA_PATH}${SETTING_FILE}"
-    cp -f "${VSCODE_DIR}${KEYBINDING_FILE}" "${MAC_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
+    rm -f "${MAC_VSCODE_DATA_PATH}${SETTING_FILE}"
+    rm -f "${MAC_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
+    ln "${VSCODE_DIR}${SETTING_FILE}" "${MAC_VSCODE_DATA_PATH}${SETTING_FILE}"
+    ln "${VSCODE_DIR}${KEYBINDING_FILE}" "${MAC_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
 
 elif [[ ${OS} =~ ^MINGW ]]; then
-    cp -f "${VSCODE_DIR}${SETTING_FILE}" "${WIN_VSCODE_DATA_PATH}${SETTING_FILE}"
-    cp -f "${VSCODE_DIR}${KEYBINDING_FILE}" "${WIN_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
+    rm -f "${WIN_VSCODE_DATA_PATH}${SETTING_FILE}"
+    rm -f "${WIN_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
+    ln "${VSCODE_DIR}${SETTING_FILE}" "${WIN_VSCODE_DATA_PATH}${SETTING_FILE}"
+    ln "${VSCODE_DIR}${KEYBINDING_FILE}" "${WIN_VSCODE_DATA_PATH}${KEYBINDING_FILE}"
 fi
 
