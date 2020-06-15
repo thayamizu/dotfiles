@@ -13,5 +13,7 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 
 ## overwrite init.el
-rm ~/.emacs.d/init.el
+rm -f ~/.emacs.d/init.el
+rm -f ~/.spacemacs
 ln ./init.el ~/.emacs.d/init.el
+ln ./.spacemacs.el ~/.spacemacs
