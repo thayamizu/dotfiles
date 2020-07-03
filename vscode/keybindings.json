@@ -1,38 +1,34 @@
 // 既定値を上書きするには、このファイル内にキー バインドを挿入します
 /* ==============================================================
-* ルール
-*  - できる限り既存のショートカットは維持する。
-*    - ほかの環境でも操作するときの都合なので、コンテキストメニューから行えるようなものはOK
-*  - ショートカットごとの接頭辞
-*    - ctrl+w ウインドウ操作
-*    - ctrl+j コード編集
-* ref.
-* VSCodeをVimmerが満足できる設定にしてみた
-* https://blog.mamansoft.net/2018/09/17/vscode-satisfies-vimmer/
-* 割と突き詰めてやったvim→vscode移行
-* https://qiita.com/y-mattun/items/45776b7e1942edb2f727
+*  - Note:
+*    - keep default shortcut
+*  - Prefix
+*    - ctrl+w ... Window Management
+*    - ctrl+e ... Code Editing
+*    - ctrl+j ... SCM
+*    - ctrl+r ... Refactor
 ================================================================ */
 [
     //----------------------------------------------------------
     //エディタ操作
     //----------------------------------------------------------
     {
-        "key": "ctrl+j i",
+        "key": "ctrl+e i",
         "command": "editor.action.goToImplementation",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+j d",
+        "key": "ctrl+e d",
         "command": "editor.action.goToDeclaration",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+j r",
+        "key": "ctrl+e r",
         "command": "editor.action.refactor",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+j n",
+        "key": "ctrl+e n",
         "command": "editor.action.rename",
         "when": "editorTextFocus"
     },
@@ -72,12 +68,12 @@
     {
         "key": "ctrl+w p",
         "command": "workbench.view.explorer",
-        "when": "!explorerViewletVisible && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
+        "when": "!explorerViewletVisible"
     },
     {
         "key": "ctrl+w p",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "explorerViewletVisible && !searchViewletVisible && !inDebugMode && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
+        "when": "explorerViewletVisible && !searchViewletVisible"
     },
     //----------------------------------------------------------
     //よく使うサイドバーの切り替え処理
@@ -87,24 +83,44 @@
         "key": "ctrl+w w",
         "command": "workbench.view.explorer",
     },
-    //ソース管理プロバイダー
-    {
-        "key": "ctrl+w s",
-        "command": "workbench.view.scm",
-    },
     //検索
     {
         "key": "ctrl+w f",
         "command": "workbench.view.search",
     },
-    //debug
+    //ソース管理プロバイダー
     {
-        "key": "ctrl+w d",
-        "command": "workbench.view.debug",
+        "key": "ctrl+w s",
+        "command": "workbench.view.scm",
     },
     //GitLens
     {
         "key": "ctrl+w g",
+        "command": "gitlens.views.repositories:gitlens.focus",
+    },
+    //Debug
+    {
+        "key": "ctrl+w d",
+        "command": "workbench.view.debug",
+    },
+    //Bookmark
+    {
+        "key": "ctrl+w b",
+        "command": "workbench.view.extension.bookmarks",
+    },
+    //Docker
+    {
+        "key": "ctrl+w k",
+        "command": "workbench.view.extension.dockerView",
+    },
+    //AWS
+    {
+        "key": "ctrl+w a",
+        "command": "workbench.view.extension.aws-explorer",
+    },
+    //Note
+    {
+        "key": "ctrl+w n",
         "command": "gitlens.views.repositories:gitlens.focus",
     },
     //----------------------------------------------------------
@@ -132,29 +148,21 @@
         "when": "terminalFocus"
     },
     //----------------------------------------------------------
-    // gitの操作系(uiの移動なし)
+    // gitの操作
     //----------------------------------------------------------
     {
-        "key": "g c",
+        "key": "ctrl+e c",
         "command": "git.commit",
-        "when": "editorTextFocus && vim.mode == 'Normal'"
+        "when": "editorTextFocus"
     },
     {
-        "key": "g a",
+        "key": "ctrl+e a",
         "command": "git.stage",
-        "when": "editorTextFocus && vim.mode == 'Normal'"
+        "when": "editorTextFocus"
     },
     {
-        "key": "g g",
+        "key": "ctrl+e g",
         "command": "cursorTop",
-        "when": "editorTextFocus && vim.mode == 'Normal'"
-    },
-    {
-        "key": "ctrl+[BracketLeft]",
-        "command": "workbench.action.terminal.toggleTerminal"
-    },
-    {
-        "key": "ctrl+shift+[BracketLeft]",
-        "command": "workbench.action.terminal.toggleTerminal"
-    },
+        "when": "editorTextFocus"
+    }
 ]

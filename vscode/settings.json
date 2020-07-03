@@ -16,22 +16,22 @@
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
     "editor.suggestSelection": "first",
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "editor.insertSpaces": true,
     "editor.detectIndentation": true,
     "editor.fontWeight": "bold",
-    "editor.lineNumbers": "relative",
-    //Workbench
-    "workbench.colorTheme": "Default Light+",
     "workbench.colorCustomizations": {
         "terminal.foreground": "#bebfc9",
         "terminal.background": "#23262b"
     },
     "workbench.editor.enablePreview": false,
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.folders.theme": "specific",
+    "material-icon-theme.folders.color": "#fdd835",
     //Terminal
     "terminal.integrated.fontFamily": "'Inconsolata-dz for Powerline', 'IPA Pゴシック'",
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "terminal.integrated.shell.osx": "zsh",
     //Explorer
     "explorer.confirmDragAndDrop": false,
@@ -78,10 +78,10 @@
     //LiveShare
     "liveshare.featureSet": "insiders",
     //AWS
-    "aws.profile": "default",
+    "aws.profile": "profile:default",
     //WorkspaceExplorer
     "workspaceExplorer.enableCustomIconSearch": true,
-    "workspaceExplorer.workspaceStorageDirectory": "~/Documents/workspaces",
+    "workspaceExplorer.workspaceStorageDirectory": "C:\\Users\\hayamizu\\Workspaces\\projects",
     ///CodeRunner
     "code-runner.clearPreviousOutput": true,
     "code-runner.defaultLanguage": "c",
@@ -140,56 +140,16 @@
             "value": "#42b883"
         }
     ],
-    //Vim
-    "vim.easymotion": true,
-    "vim.hlsearch": true,
-    "vim.ignorecase": true,
-    "vim.incsearch": true,
-    "vim.sneak": false,
-    "vim.useCtrlKeys": true,
-    "vim.useSystemClipboard": true,
-    "vim.visualstar": true,
-    "vim.camelCaseMotion.enable": false,
-    "vim.highlightedyank.enable": true,
-    "vim.history": 100,
-    "vim.leader": " ",
-    "vim.statusBarColorControl": false,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "f"
-            ],
-            "after": [
-                "<leader>",
-                "<leader>",
-                "s"
-            ]
-        },
-        {
-            "before": [
-                "<C-n>"
-            ],
-            "commands": [
-                ":nohl"
-            ]
-        }
-    ],
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false
+    //Note
+    "Notes.notesLocation": "c:\\Users\\hayamizu\\Dropbox\\Markdown",
+    //Java
+    "java.semanticHighlighting.enabled": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
     },
-    "material-icon-theme.folders.theme": "specific",
-    "material-icon-theme.folders.color": "#fdd835",
-    "python.autoComplete.extraPaths": ["~/.pyenv/versions/anaconda3-4.3.1/lib/python3.6/site-packages"]
+    //IntelliCode
+    "vsintellicode.features.python.deepLearning": "enabled"
 }
