@@ -140,28 +140,32 @@
     {
         "key": "ctrl+w t",
         "command": "workbench.action.terminal.toggleTerminal",
-        "when": "!terminalFocus'"
+        "when": "!terminalFocus"
     },
     {
         "key": "ctrl+w t",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminalFocus"
     },
+    {
+        "key": "ctrl+w ;",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
     //----------------------------------------------------------
     // gitの操作
     //----------------------------------------------------------
     {
-        "key": "ctrl+e c",
+        "key": "ctrl+j c",
         "command": "git.commit",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+e a",
+        "key": "ctrl+j a",
         "command": "git.stage",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+e g",
+        "key": "ctrl+j g",
         "command": "cursorTop",
         "when": "editorTextFocus"
     }
