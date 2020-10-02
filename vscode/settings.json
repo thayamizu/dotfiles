@@ -81,7 +81,7 @@
     "aws.profile": "profile:default",
     //WorkspaceExplorer
     "workspaceExplorer.enableCustomIconSearch": true,
-    "workspaceExplorer.workspaceStorageDirectory": "C:\\Users\\hayamizu\\Workspaces\\projects",
+    "workspaceExplorer.workspaceStorageDirectory": "~/Documents/projects",
     ///CodeRunner
     "code-runner.clearPreviousOutput": true,
     "code-runner.defaultLanguage": "c",
@@ -140,8 +140,6 @@
             "value": "#42b883"
         }
     ],
-    //Note
-    "Notes.notesLocation": "c:\\Users\\hayamizu\\Dropbox\\Markdown",
     //Java
     "java.semanticHighlighting.enabled": true,
     "files.exclude": {
