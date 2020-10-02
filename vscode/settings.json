@@ -10,8 +10,8 @@
     },
     //Editor
     "editor.find.addExtraSpaceOnTop": false,
-    "editor.fontFamily": "'Inconsolata-dz for Powerline','IPA Pゴシック', Consolas, 'Courier New', monospace",
-    "editor.fontSize": 16,
+    "editor.fontFamily": "'源ノ角ゴシック Code JP','IPA Pゴシック', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 14,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
@@ -19,13 +19,13 @@
     "editor.formatOnSave": true,
     "editor.insertSpaces": true,
     "editor.detectIndentation": true,
-    "editor.fontWeight": "bold",
+    "editor.fontWeight": "normal",
     "workbench.colorCustomizations": {
         "terminal.foreground": "#bebfc9",
         "terminal.background": "#23262b"
     },
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Visual Studio Light",
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.folders.theme": "specific",
     "material-icon-theme.folders.color": "#fdd835",
@@ -149,5 +149,6 @@
         "**/.factorypath": true
     },
     //IntelliCode
-    "vsintellicode.features.python.deepLearning": "enabled"
+    "vsintellicode.features.python.deepLearning": "enabled",
+    "workbench.activityBar.visible": true
 }
