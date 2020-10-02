@@ -17,7 +17,6 @@ dramforever.vscode-ghc-simple
 eamodio.gitlens
 EditorConfig.EditorConfig
 emilast.LogFileHighlighter
-Equinusocio.vsc-community-material-theme
 felixfbecker.php-debug
 formulahendry.code-runner
 golang.go
@@ -63,8 +62,6 @@ Pivotal.vscode-boot-dev-pack
 Pivotal.vscode-concourse
 Pivotal.vscode-manifest-yaml
 Pivotal.vscode-spring-boot
-PKief.material-icon-theme
-rbbit.typescript-hero
 rebornix.ruby
 redhat.java
 redhat.vscode-yaml
@@ -89,7 +86,6 @@ vscjava.vscode-spring-initializr
 vscode-icons-team.vscode-icons
 waderyan.gitblame
 wingrunr21.vscode-ruby
-zhuangtongfa.material-theme
 )
 
 

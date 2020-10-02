@@ -150,5 +150,5 @@
     },
     //IntelliCode
     "vsintellicode.features.python.deepLearning": "enabled",
-    "workbench.activityBar.visible": true
+    "workbench.activityBar.visible": false
 }
