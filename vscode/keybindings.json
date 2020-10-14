@@ -5,6 +5,7 @@
 *  - Prefix
 *    - ctrl+w ... Window Management
 *    - ctrl+e ... Code Editing
+*    - ctrl+p ... Panel
 *    - ctrl+j ... SCM
 *    - ctrl+r ... Refactor
 ================================================================ */
@@ -118,11 +119,6 @@
         "key": "ctrl+w a",
         "command": "workbench.view.extension.aws-explorer",
     },
-    //Note
-    {
-        "key": "ctrl+w n",
-        "command": "gitlens.views.repositories:gitlens.focus",
-    },
     //----------------------------------------------------------
     // vscodeのviewを選択
     //----------------------------------------------------------
@@ -168,5 +164,16 @@
         "key": "ctrl+j g",
         "command": "cursorTop",
         "when": "editorTextFocus"
-    }
+    },
+    //----------------------------------------------------------
+    // パネルの操作
+    //----------------------------------------------------------
+    {
+        "key": "ctrl+p w",
+        "command": "workspaceExplorer.focus",
+    },
+    {
+        "key": "ctrl+p n",
+        "command": "npm.focus",
+    },
 ]
