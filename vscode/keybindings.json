@@ -139,7 +139,7 @@
         "when": "!terminalFocus"
     },
     {
-        "key": "ctrl+z s",
+        "key": "ctrl+z t",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminalFocus"
     },
