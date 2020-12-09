@@ -10,7 +10,7 @@
     },
     //Editor
     "editor.find.addExtraSpaceOnTop": false,
-    "editor.fontFamily": "'源ノ角ゴシック Code JP','IPA Pゴシック', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Source Code Pro', 'IPA Pゴシック', Consolas, 'Courier New', monospace",
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
@@ -25,7 +25,7 @@
         "terminal.background": "#23262b"
     },
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.colorTheme": "Default Light+",
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.folders.theme": "specific",
     "material-icon-theme.folders.color": "#fdd835",
@@ -50,7 +50,6 @@
     },
     "gitlens.defaultGravatarsStyle": "robohash",
     "gitlens.keymap": "alternate",
-    "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
     //Emmet
     "emmet.includeLanguages": {
@@ -150,5 +149,11 @@
     },
     //IntelliCode
     "vsintellicode.features.python.deepLearning": "enabled",
-    "workbench.activityBar.visible": false
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "python.languageServer": "Microsoft"
 }
