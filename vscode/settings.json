@@ -10,8 +10,8 @@
     },
     //Editor
     "editor.find.addExtraSpaceOnTop": false,
-    "editor.fontFamily": "'Source Code Pro', 'IPA Pゴシック', Consolas, 'Courier New', monospace",
-    "editor.fontSize": 14,
+    "editor.fontFamily": "'Cascadia Code', 'IPA Pゴシック', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 16,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
@@ -24,15 +24,21 @@
         "terminal.foreground": "#bebfc9",
         "terminal.background": "#23262b"
     },
+    "workbench.fontAliasing": "auto",
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Default Light+",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "vscode-icons",
     "material-icon-theme.folders.theme": "specific",
     "material-icon-theme.folders.color": "#fdd835",
     //Terminal
-    "terminal.integrated.fontFamily": "'Inconsolata-dz for Powerline', 'IPA Pゴシック'",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "'Cascadia Code', 'IPA Pゴシック'",
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "terminal.integrated.shell.osx": "zsh",
+    //DebugConsole
+    "debug.console.fontSize": 14,
+    //SCM
+    "scm.inputFontSize": 14,
     //Explorer
     "explorer.confirmDragAndDrop": false,
     //Git
@@ -155,5 +161,7 @@
             "filenamePattern": "*.ipynb"
         }
     ],
-    "python.languageServer": "Microsoft"
+    "python.languageServer": "Microsoft",
+    "http.proxySupport": "off",
+    "omnisharp.useGlobalMono": "never",
 }
