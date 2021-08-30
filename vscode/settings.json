@@ -9,6 +9,7 @@
         "*.blade": "blade"
     },
     //Editor
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.find.addExtraSpaceOnTop": false,
     "editor.fontFamily": "'Cascadia Code', 'IPA Pゴシック', Consolas, 'Courier New', monospace",
     "editor.fontSize": 16,
@@ -16,10 +17,10 @@
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
     "editor.suggestSelection": "first",
-    "editor.formatOnSave": true,
     "editor.insertSpaces": true,
     "editor.detectIndentation": true,
     "editor.fontWeight": "normal",
+    //workbench
     "workbench.colorCustomizations": {
         "terminal.foreground": "#bebfc9",
         "terminal.background": "#23262b"
@@ -27,11 +28,18 @@
     "workbench.fontAliasing": "auto",
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Default Light+",
-    "workbench.iconTheme": "vscode-icons",
+
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.activityBar.visible": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "material-icon-theme.folders.theme": "specific",
     "material-icon-theme.folders.color": "#fdd835",
+    "vsicons.dontShowNewVersionMessage": true,
     //Terminal
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontWeight":"normal",
     "terminal.integrated.fontFamily": "'Cascadia Code', 'IPA Pゴシック'",
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "terminal.integrated.shell.osx": "zsh",
@@ -71,11 +79,23 @@
     //Langauge
     "C_Cpp.updateChannel": "Insiders",
     "C_Cpp.workspaceSymbols": "All",
-    "python.jediEnabled": false,
+    "go.toolsManagement.autoUpdate": true,
+    "omnisharp.useGlobalMono": "never",
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "latex-workshop.view.pdf.viewer": "tab",
+    "php.validate.enable": false, //組み込みのvalidaionはオフにしておく
     "php.validate.executablePath": "/usr/local/bin/php",
     "php.validate.run": "onType",
+    "php-cs-fixer.lastDownload": 1629938613858,
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+    "intelephense.diagnostics.undefinedTypes": false,
+    "intelephense.diagnostics.undefinedFunctions": false,
+    "intelephense.diagnostics.undefinedConstants": false,
+    "intelephense.diagnostics.undefinedClassConstants": false,
+    "intelephense.diagnostics.undefinedMethods": false,
+    "intelephense.diagnostics.undefinedProperties": false,
+    "intelephense.diagnostics.undefinedVariables": false,
+    "intelephense.diagnostics.run": "onType",
+    "python.languageServer": "Microsoft",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "typescript.implementationsCodeLens.enabled": true,
     "typescript.referencesCodeLens.enabled": true,
@@ -154,14 +174,6 @@
         "**/.factorypath": true
     },
     //IntelliCode
-    "vsintellicode.features.python.deepLearning": "enabled",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
-    "python.languageServer": "Microsoft",
-    "http.proxySupport": "off",
-    "omnisharp.useGlobalMono": "never",
+
+    "vsintellicode.features.python.deepLearning": "enabled"
 }
