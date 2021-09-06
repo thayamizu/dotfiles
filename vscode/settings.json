@@ -28,7 +28,6 @@
     "workbench.fontAliasing": "auto",
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Default Light+",
-
     "workbench.iconTheme": "material-icon-theme",
     "workbench.activityBar.visible": true,
     "workbench.editorAssociations": {
@@ -39,7 +38,7 @@
     "vsicons.dontShowNewVersionMessage": true,
     //Terminal
     "terminal.integrated.fontSize": 16,
-    "terminal.integrated.fontWeight":"normal",
+    "terminal.integrated.fontWeight": "normal",
     "terminal.integrated.fontFamily": "'Cascadia Code', 'IPA Pゴシック'",
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "terminal.integrated.shell.osx": "zsh",
@@ -174,6 +173,41 @@
         "**/.factorypath": true
     },
     //IntelliCode
-
-    "vsintellicode.features.python.deepLearning": "enabled"
+    "vsintellicode.features.python.deepLearning": "enabled",
+    "http.proxySupport": "off",
+    "gitlens.mode.active": "zen",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "yaml.customTags": [
+        "!And",
+        "!And sequence",
+        "!If",
+        "!If sequence",
+        "!Not",
+        "!Not sequence",
+        "!Equals",
+        "!Equals sequence",
+        "!Or",
+        "!Or sequence",
+        "!FindInMap",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Join",
+        "!Join sequence",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!Sub sequence",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!ImportValue sequence",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Split sequence"
+    ],
+    "yaml.schemas": {},
 }
